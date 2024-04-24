@@ -33,7 +33,6 @@ pexpect==4.8.0
 Pillow==10.1.0
 pipreqs==0.4.13
 ptyprocess==0.7.0
-PyGObject==3.42.1
 PyJWT==2.3.0
 pyparsing==2.4.7
 python-apt==2.4.0+ubuntu1
