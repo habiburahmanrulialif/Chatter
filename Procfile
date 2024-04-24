@@ -1,1 +1,1 @@
-web: gunicorn chatter:app
+web: gunicorn chatter.wsgi:application
