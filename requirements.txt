@@ -35,7 +35,6 @@ pipreqs==0.4.13
 ptyprocess==0.7.0
 PyJWT==2.3.0
 pyparsing==2.4.7
-python-apt==2.4.0+ubuntu1
 pytz==2023.3.post1
 PyYAML==5.4.1
 requests==2.31.0
