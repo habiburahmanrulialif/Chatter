@@ -1,0 +1,463 @@
+body {
+    background-color: #0D1317;
+    position: fixed;
+}
+
+#box {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#inner-box {
+    background-color: #232E35;
+    margin: 2vh 2vh;
+    height: 96vh;
+    width: 1600px;
+    color: white;
+    display: flex;
+}
+
+#sidebar {
+    display: block;
+    border-right: 1px solid #2C3840;
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+#profile {
+    height: 67px;
+    padding: 0% 10px;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+#logout{
+    position:absolute;
+    right: 20px;
+	color:#FFF;
+	text-align:center;
+}
+
+#profile-content{
+    height: 100%;
+    width: 100%;
+}
+
+#profile-image-container{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-image{
+    border-radius: 50%;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+}
+
+#profile-info-container{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#profile-name{
+    width: 400px; 
+    max-width: 90%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+#navigation {
+    background-color: #121B21;
+    height: calc(100% - 67px);
+    width: 100%;
+    padding: 10px 10px;
+    position: relative;
+}
+
+#add-group {
+    position:absolute;
+	width:60px;
+	height:60px;
+    right: 20px;
+    bottom: 20px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 25%;
+    z-index: 9;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #232E35;
+    text-align: center;
+    color: white;
+}
+
+#btnCreate{
+    color: white;
+}
+
+#btnClose{
+    color: white;
+}
+
+#search {
+    height: 50px;
+}
+
+#search-bar {
+    justify-self: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 35px;
+    background-color: #2C3840;
+    border: 0;
+    padding: 10px 10px 10px 30px;
+    color: #ABC5C7;
+    overflow: auto;
+}
+
+.search-button {
+    position: absolute;
+    background-color: inherit;
+    border: 0;
+    padding: 6px;
+    color: #121B21;
+}
+
+#group-list {
+    height: calc(100% - 50px);
+    margin: 0px -10px;
+    overflow: auto;
+}
+
+#group-card {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #2C3840;
+}
+
+#group-card:hover{
+    background-color: #2C3840;
+}
+
+#group-content {
+    height: 100%;
+    width: 100%;
+}
+
+#group-image-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#group-image {
+    border-radius: 50%;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+}
+
+#group-info-container {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#group-info-member {
+    width: 400px; 
+    max-width: 90%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+}
+
+#message-content{
+    width: 100%;
+    height: 100%;
+}
+
+#group-name {
+    height: 67px;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+}
+
+#add-member {
+    position:absolute;
+	width: 40px;
+	height: 40px;
+    right: 20px;
+    bottom: calc((67px - 40px)/2);
+	color:#FFF;
+    border-radius: 50px;
+	text-align:center;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebarControl {
+    display: none;
+    position:absolute;
+	width: 0px;
+	height: 40px;
+    left: 20px;
+    bottom: calc((67px - 40px)/2);
+	color:#FFF;
+    border-radius: 50px;
+	text-align:center;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    color: white;
+}
+
+#alertMember{
+    display: none;
+}
+
+#group-member {
+    width: 1000px;
+    max-width: 80%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.my-float-group{
+	padding: 12px;
+}
+
+#message-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align messages to the left */
+    padding: 0% 10px;
+    overflow: auto;
+    height: calc(100% - 134px);
+    background: url('/static/chat/images/bg-chat.jpg') 50%;
+    background-size: cover;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list-not-owner {
+    background-color: #2C3840;
+    min-width: 25%;
+    max-width: 75%;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.message-list-owner {
+    background-color: #24A885;
+    min-width: 25%;
+    max-width: 75%;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+#message-form {
+    height: 67px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    border-top: 1px solid #2C3840;
+    background-color: #232E35;
+}
+
+#message-form-container{
+    width: 100%;
+    height: 100%;
+}
+
+#message-form-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message-form-text{
+    height: calc(100% - 20px);
+    width: calc(100% - 80px);
+    border-radius: 10px;
+    background-color: #2C3840;
+    border: 0;
+    margin-right: 10px;
+    padding: 10px;
+    color: white;
+}
+
+#message-form-button{
+    background-color: #232E35;
+    border: none;
+    border-radius: 50%;
+}
+
+#message-form-button:hover{
+    background-color: #2C3840;
+    border: 1px solid;
+    margin: -1px;
+}
+
+
+@media screen and (max-width: 1440px) {
+    #inner-box {
+        background-color: #232E35;
+        margin: 0;
+        height: 100vh;
+        width: 1600px;
+        color: #ABC5C7;
+    }
+
+    #group-member {
+        width: 800px;
+        max-width: 80%;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+    }
+
+    #add-member {
+        position:absolute;
+        width: 40px;
+        height: 40px;
+        right: 40px;
+        bottom: calc((67px - 40px)/2);
+        color:#FFF;
+        border-radius: 50px;
+        text-align:center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #sidebar {
+        display: none;
+        width: 70%;
+    }
+
+    #add-member {
+        position:absolute;
+        width: 40px;
+        height: 40px;
+        right: 80px;
+        bottom: calc((67px - 40px)/2);
+        color:#FFF;
+        border-radius: 50px;
+        text-align:center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sidebarControl {
+        display: block;
+        width: 40px;
+        margin-left: -80px;
+    }
+
+    #group-name{
+        margin-left: 80px;
+    }
+    
+    .search-button {
+        position: absolute;
+        background-color: inherit;
+        border: 0;
+        padding: 6px;
+        color: #121B21;
+        display: none;
+    }
+
+    #group-member {
+        width: 1000px;
+        max-width: 90%;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+    }
+    
+    #inner-box {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #group-image-container {
+        width: 30%;
+    }
+    
+    #group-info-container {
+        width: 70%;
+    }
+}
+
+
+/* For WebKit based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    height: 20px; /* Height of the scrollbar */
+}
+
+/* Optional: Adjust other scrollbar styles as needed */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Radius of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+    border-radius: 10px;
+}

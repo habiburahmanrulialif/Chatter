@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CHATTER</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href="{% static 'chat/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div id="box" >
+            <div id="inner-box">
+                <div id="sidebar">
+                    <div id="profile">
+                        <!-- Load user profile -->
+                        <div id="profile">
+                            <div class="row g-0" id="profile-content">
+                                <div class="col-md-2" id="profile-image-container">
+                                    <img src="{% static "chat/images/no-image.jpg" %}" id="profile-image" alt="...">
+                                </div>
+                                <div class="col-md-10" id="profile-info-container">
+                                    <p id="profile-name">{{user.username}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'logout' %}" id="logout">
+                            <i class="fa fa-sign-out-alt my-float-group" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div id="navigation">
+                        <div id="group-list">
+                            <!-- loading all the group available -->
+                        </div>
+                        <a href="#" id="add-group" onclick="openForm()">
+                            <i class="fa fa-plus my-float"></i>
+                        </a>
+                        <div class="form-popup" id="myForm">
+                            <form action="" class="form-container">
+                                {% csrf_token %}
+                                <h1>CREATE NEW GROUP</h1>
+                            
+                                <label for="groupNameInput" style="margin-top: 40px;"><b>Group Name</b></label>
+                                <input type="text" placeholder="Enter Group Name" id="groupNameInput" required>
+                            
+                                <button type="button" id="btnCreate" class="btn" onclick="newGroup()">Create</button>
+                                <button type="button" id="btnClose" class="btn cancel" onclick="closeForm()">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="content">
+                    <div id="message-content">
+                        <div id="group-name">
+                            <!-- Load group name -->
+                            <a href="#" id="sidebarControl" onclick="openSidebar()">
+                                <i class="fa fa-bars my-float-group"></i>
+                            </a>
+                            <h6 id="group-title"></h6>
+                            <p id="group-member"></p>
+                            <a href="#" id="add-member" >
+                                <i class="fa fa-plus my-float-group"></i>
+                            </a>
+                            <div class="form-popup" id="myMemberForm">
+                                <form action="" class="form-container">
+                                    {% csrf_token %}
+                                    <h1>ADD NEW MEMBER</h1>
+                                    <div
+                                        class="alert alert-primary"
+                                        role="alert"
+                                        id="alertMember"
+                                    >
+                                        <strong id="alertMemberContent">Alert Heading</strong>
+                                    </div>
+                                    
+                                    <label for="newMemberInput" style="margin-top: 40px;"><b>New Member</b></label>
+                                    <input type="text" placeholder="Enter New Member" id="newMemberInput" required>
+                                
+                                    <button type="button" id="btnNewMember" class="btn">Add Member</button>
+                                    <button type="button" id="btnClose" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="message-data">
+                            <!-- load message -->
+                            
+                        </div>
+                        <div id="message-form" >
+                            <div id="message-form-container" >
+                                <!-- loading message form -->
+                                <form id="message-form-form">
+                                    <input type="text" id="message-form-text" placeholder="Add message here">
+                                    <button type="button" id="message-form-button"><i class="fas fa-paper-plane"></i></button>
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="clear"></div>
+            </div>
+        </div>
+        <script src="{% static 'chat/chat.js' %}"></script>
+        <script>
+            var currentUser = "{{ request.user.username|escapejs }}";
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
